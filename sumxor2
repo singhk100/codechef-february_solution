@@ -1,0 +1,24 @@
+try:
+    from itertools import combinations
+    from functools import reduce
+    def xor(a,b):
+        return a^b
+    n=int(input())
+    li=list(map(int,input().split(" ")))
+    Q=int(input())
+    for i in range(Q):
+        m=int(input())
+        s=0
+        if m==1:
+            print(sum(li))
+        else:
+            s=sum(li)
+            for j in range(2,m+1):
+                comb=list(combinations(li,j))
+                for k in range(len(comb)):
+                    res = reduce(lambda x, y: x ^ y,comb[k])
+                    s+=res
+                        
+            print(s)  
+except Exception:
+    print("problem")
